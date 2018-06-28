@@ -4,7 +4,7 @@ $(document).ready(function() {
     function displaySodaGifs() {
 
         var soda = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?=10" + soda + "AfBXBVWRioadKrXZOqJFse9JxinigJyO";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO&limit=10";
 
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
@@ -12,7 +12,7 @@ $(document).ready(function() {
           method: "GET"
         }).then(function(response) {
 
-          // Creating a div to hold the movie
+          // Creating a div to hold the soda
           var sodaDiv = $("<div class='soda'>");
 
           // Storing the rating data
@@ -23,6 +23,8 @@ $(document).ready(function() {
 
           // Displaying the rating
           sodaDiv.append(p);
+
+          var imgURL = reponse.Gif;
 
           // Creating an element to hold the image
           var image = $("<img>").attr("src", imgURL);
@@ -68,16 +70,21 @@ function submit(event){
 //Adds soda 
 $('#add-soda').on('click', function(event){
     event.preventDefault();
+
     
     renderButtons();
    
 });
+
 
 $(document).on("click", ".soda-btn", displaySodaGifs);
 
 
 
 renderButtons();
+
+});
+
 
 // $(document).on("click", ".soda-btn", displaySodaGifs){
 
@@ -161,5 +168,5 @@ renderButtons();
 // renderButtons();
 
 
-});
+
 

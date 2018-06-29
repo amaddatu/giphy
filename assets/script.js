@@ -4,43 +4,43 @@ $(document).ready(function() {
     function displaySodaGifs() {
 
         var soda = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO&limit=10";
-
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO";
+    
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
           url: queryURL,
           method: "GET"
         }).then(function(response) {
-
+            console.log(response);
+    
           // Creating a div to hold the soda
-          var sodaDiv = $("<div class='soda'>");
+          for(var i=0; i < 10; i++){
+    
+            // Creating an element to hold the image
+              var image = $("<img>").attr("src", stillImage);
+              var sodaDiv = $("<div class='soda'>");
+              var stillImage = response.data[i].images.fixed_height_still.url;
+              console.log(stillImage);
+              var rating = response.data[i].rating;
+              console.log(rating);
+              var p = $("<div>").text("Rating: " + rating);
+            
 
-          // Storing the rating data
-          var rating = response.Rated;
-
-          // Creating an element to have the rating displayed
-          var p = $("<p>").text("Rating: " + rating);
-
-          // Displaying the rating
-          sodaDiv.append(p);
-
-          var imgURL = reponse.Gif;
-
-          // Creating an element to hold the image
-          var image = $("<img>").attr("src", imgURL);
-
-          // Appending the image
-          sodaDiv.append(image);
-
-          // Putting the entire movie above the previous movies
-          $("#soda-display").prepend(sodaDiv);
+              //Now append image to div
+             $(sodaDiv).append(p);
+             $(sodaDiv).append(image);
+             $('.gif-section').append(sodaDiv);
+             
+          }
+          
+        
         });
 
+    
       }
-
 function renderButtons(){
 
-$('#soda-display').empty();
+$('.gif-section').empty();
 for(i = 0; i < sodas.length; i++){
     
     var b = $("<button>");
@@ -51,7 +51,7 @@ for(i = 0; i < sodas.length; i++){
 
     b.text(sodas[i]);
 
-    $('#soda-display').append(b);
+    $('.gif-section').append(b);
 
     }
   }
@@ -68,13 +68,56 @@ function submit(event){
 }
 
 //Adds soda 
-$('#add-soda').on('click', function(event){
+$('#add-soda').on('click', function(event){  
     event.preventDefault();
 
     
     renderButtons();
    
 });
+//PLEASRE REMEMBER THIS DAN!!!! Adding a child to your .on(click)
+$("#soda-display").on("click", ".soda-btn", function(){
+    console.log(this);
+    
+});
+
+
+// function displaySodaGifs() {
+
+//     var soda = $(this).attr("data-name");
+//     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO";
+
+//     // Creating an AJAX call for the specific movie button being clicked
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).then(function(response) {
+
+//       // Creating a div to hold the soda
+//       var sodaDiv = $("<div class='soda'>");
+
+//       // Storing the rating data
+//       var rating = response.Rated;
+
+//       // Creating an element to have the rating displayed
+//       var p = $("<p>").text("Rating: " + rating);
+
+//       // Displaying the rating
+//       sodaDiv.append(p);
+
+//       var imgURL = reponse.Gif;
+
+//       // Creating an element to hold the image
+//       var image = $("<img>").attr("src", imgURL);
+
+//       // Appending the image
+//       sodaDiv.append(image);
+
+//       // Putting the entire movie above the previous movies
+//       $("#soda-display").prepend(sodaDiv);
+//     });
+
+//   }
 
 
 $(document).on("click", ".soda-btn", displaySodaGifs);

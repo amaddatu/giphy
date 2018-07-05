@@ -1,0 +1,12 @@
+.soda-btn {
+  background: seagreen;
+  color: white;
+  margin: 5px;
+  padding: 10px; }
+
+#add-soda {
+  background: blue;
+  color: white; }
+
+#soda-form {
+  float: right; }

@@ -17,7 +17,7 @@ var sass = require('gulp-sass');
 gulp.task('sass', function() {
     gulp.src('assets/scss/main.scss')
         .pipe(sass())
-        .pipe(gulp.dest('assets/css'))
+        .pipe(gulp.dest('assets'))
 });
 
 gulp.task('default', ['sass'], function() {

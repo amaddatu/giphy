@@ -137,7 +137,7 @@ $(document).ready(function() {
         //console.log(this);
         var image = $(this).find("img");
         var imageState = image.attr("data-image-state");
-        console.log(imageState);
+        //console.log(imageState);
         //if we have a still state
         if(imageState === "still"){
             //change attributes to the gif or animated image

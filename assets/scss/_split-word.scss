@@ -1,0 +1,33 @@
+$h1FontSize: 40px;
+$h1SpaceBetween: 6px;
+.split-word-wrapper-h1{
+    height: $h1FontSize;
+    .top,
+    .bottom{
+        height: $h1FontSize / 2 - 2px - ($h1SpaceBetween / 2) + 2px;
+        overflow: hidden;
+    }
+    .top{
+        margin-bottom: $h1SpaceBetween / 2;
+        border-bottom: 1px solid yellow;
+        h1{
+            top: 0px;
+        }
+    }
+    .bottom{
+        margin-top: $h1SpaceBetween / 2;
+        border-top: 1px solid yellow;
+        h1{
+            top: 0 - $h1FontSize / 2 + 2px - ($h1SpaceBetween / 2);
+        }
+    }
+    h1{
+        display:block;
+        position:relative;
+        line-height: $h1FontSize;
+        font-size: $h1FontSize;
+        text-align: center;
+        overflow: hidden;
+        height: $h1FontSize;
+    }
+}

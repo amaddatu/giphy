@@ -15,19 +15,28 @@ $(document).ready(function() {
     
             // Creating a div to hold the soda
             for(var i=0; i < 10; i++){
-
+                var currentData = response.data[i];
                 // Creating an element to hold the image
                 var image = $("<img>");
                 var sodaDiv = $("<div class='soda'>");
                 //still image is defined here using the response data
-                var stillImage = response.data[i].images.fixed_height_still.url;
-                console.log(stillImage);
+                var stillImage = currentData.images.fixed_height_still.url;
+                var gifImage = currentData.images.fixed_height.url;
+                //console.log(stillImage);
                 //since still image is defined... we can now use the still image url
                 image.attr("src", stillImage);
-                var rating = response.data[i].rating;
-                console.log(rating);
-                var p = $("<div>").text("Rating: " + rating);
+                var rating = currentData.rating;
+                //console.log(rating);
 
+                //adding states and stateful images
+                console.log(currentData.images);
+                //Note: remember to put "data-" in front of custom attribute names
+                image.attr("data-still-image", stillImage);
+                image.attr("data-gif-image", gifImage);
+                image.attr("data-image-state", "still");
+                
+                
+                var p = $("<div>").text("Rating: " + rating);
 
                 //Now append image to div
                 $(sodaDiv).append(p);

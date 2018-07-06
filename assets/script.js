@@ -1,6 +1,27 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+var animationSelections = [
+    'animated bounceInDown',
+    'animated bounceInLeft',
+    'animated bounceInRight',
+    'animated bounceInUp',
+    'animated rotateInDownLeft',
+    'animated rotateInDownRight',
+    'animated rotateInUpLeft',
+    'animated rotateInUpRight'
+];
+
+var attentionSelections = [
+    'animated bounce',
+    'animated flash',
+    'animated pulse',
+    'animated jello',
+    'animated wobble',
+    'animated tada',
+    'animated swing',
+    'animated shake'
+];
 
 $(document).ready(function() {
     var sodas = ['Coke', 'Sprite', 'Mountain Dew', 'Dr. Pepper'];
@@ -19,16 +40,7 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         }).then(function(response) {
-            var animationSelections = [
-                'animated bounceInDown',
-                'animated bounceInLeft',
-                'animated bounceInRight',
-                'animated bounceInUp',
-                'animated rotateInDownLeft',
-                'animated rotateInDownRight',
-                'animated rotateInUpLeft',
-                'animated rotateInUpRight'
-            ];
+            
             //console.log(response);
     
             // Creating a div to hold the soda
@@ -69,7 +81,9 @@ $(document).ready(function() {
                 var randomAnimationNumber = getRandomInt(animationSelections.length);
                 $(sodaDiv).addClass(animationSelections[randomAnimationNumber]);
                 $('.gif-section').append(sodaDiv);
-             
+                setTimeout(function(element, animationClass){
+                    $(element).removeClass(animationClass);
+                }, 1000, sodaDiv, animationSelections[randomAnimationNumber]);
             }
           
         
@@ -131,7 +145,12 @@ $(document).ready(function() {
             image.attr("data-image-state", "gif");
 
             $(this).addClass("soda-gif");
+            var randomAnimationNumber = getRandomInt(animationSelections.length);
+            $(this).addClass(attentionSelections[randomAnimationNumber]);
 
+            setTimeout(function(element, animationClass){
+                $(element).removeClass(animationClass);
+            }, 1000, this, attentionSelections[randomAnimationNumber]);
         }
         //if we don't have still state
         else{

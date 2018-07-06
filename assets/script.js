@@ -50,10 +50,14 @@ var attentionSelections = [
 
 $(document).ready(function() {
     var sodas = ['Coke', 'Sprite', 'Mountain Dew', 'Dr. Pepper'];
-    
     function displaySodaGifs() {
         //clear all sodas from display
         $('.gif-section').find(".soda").remove();
+
+        
+        if(!$('body').hasClass('active')){
+            $('body').addClass('active');
+        }
 
         var soda = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO";

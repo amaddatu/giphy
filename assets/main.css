@@ -2506,6 +2506,10 @@
 h1 {
   font-size: 40px; }
 
+body.active {
+  background-image: url(images/bubbles.gif);
+  background-size: 100%; }
+
 .split-word-wrapper-h1 {
   height: 40px;
   margin-top: 10px;

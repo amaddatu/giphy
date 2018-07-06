@@ -4,7 +4,7 @@ $h1SpaceBetween: 4px;
     height: $h1FontSize;
     margin-top: 10px;
     margin-bottom: 7px;
-    .top,
+    .top,   
     .bottom{
         height: $h1FontSize / 2 - 2px - ($h1SpaceBetween / 2) + 2px;
         overflow: hidden;

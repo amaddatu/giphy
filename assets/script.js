@@ -1,6 +1,7 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+var buttonRenderFirstRun = true;
 var animationSelections = [
     'animated bounceInDown',
     'animated bounceInLeft',
@@ -10,6 +11,13 @@ var animationSelections = [
     'animated rotateInDownRight',
     'animated rotateInUpLeft',
     'animated rotateInUpRight'
+];
+
+var buttonNewSelections = [
+    'animated zoomIn',
+    'animated zoomInDown',
+    'animated zoomInLeft',
+    'animated zoomInRight'
 ];
 
 var attentionSelections = [
@@ -103,10 +111,20 @@ $(document).ready(function() {
             b.attr("data-name", sodas[i]);
 
             b.text(sodas[i]);
-
+            
+            if(!buttonRenderFirstRun && i === sodas.length - 1){
+                var randomAnimationNumber = getRandomInt(buttonNewSelections.length);
+                b.addClass(buttonNewSelections[randomAnimationNumber]);
+                setTimeout(function(element, animationClass){
+                    $(element).removeClass(animationClass);
+                }, 1000, b, buttonNewSelections[randomAnimationNumber]);
+            }
+            
             $('#soda-display').append(b);
 
+
         }
+        buttonRenderFirstRun = false;
     }
 
     $('#add-soda').on('click', function(event){
@@ -145,7 +163,7 @@ $(document).ready(function() {
             image.attr("data-image-state", "gif");
 
             $(this).addClass("soda-gif");
-            var randomAnimationNumber = getRandomInt(animationSelections.length);
+            var randomAnimationNumber = getRandomInt(attentionSelections.length);
             $(this).addClass(attentionSelections[randomAnimationNumber]);
 
             setTimeout(function(element, animationClass){

@@ -2526,18 +2526,18 @@ h1 {
   height: 40px; }
   .split-word-wrapper-h1 .top,
   .split-word-wrapper-h1 .bottom {
-    height: 17px;
+    height: 18px;
     overflow: hidden; }
   .split-word-wrapper-h1 .top {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     border-bottom: 1px solid yellow; }
     .split-word-wrapper-h1 .top h1 {
       top: 0px; }
   .split-word-wrapper-h1 .bottom {
-    margin-top: 3px;
+    margin-top: 2px;
     border-top: 1px solid yellow; }
     .split-word-wrapper-h1 .bottom h1 {
-      top: -21px; }
+      top: -20px; }
   .split-word-wrapper-h1 h1 {
     display: block;
     position: relative;

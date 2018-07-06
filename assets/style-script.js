@@ -10,7 +10,7 @@ $(document).ready(function() {
         var topWrapper = $("<div>");
         topWrapper.addClass("top");
         //use animate class
-        topWrapper.addClass("animated bounceInRight");
+        topWrapper.addClass("animated jello");
         var hTagTop = $("<" + tag + ">");
         hTagTop.html(hHtml);
         hTagTop.addClass(hClasses);

@@ -89,6 +89,27 @@ $(document).ready(function() {
     });
     //PLEASE REMEMBER THIS DAN!!!! Adding a child to your .on(click)
     $("#soda-display").on("click", ".soda-btn", displaySodaGifs);
+
+    //Adding stateful gif click event
+    $(".gif-section").on("click", ".soda", function(event){
+        //making sure I get the div I want...
+        console.log(this);
+        var image = $(this).find("img");
+        var imageState = image.attr("data-image-state");
+        //if we have a still state
+        if(imageState === "still"){
+            //change attributes to the gif or animated image
+            image.attr("src", image.attr("data-gif-image"));
+            image.attr("data-image-state", "gif");
+        }
+        //if we don't have still state
+        else{
+            //change attributes to the still image
+            image.attr("src", image.attr("data-still-image"));
+            image.attr("data-image-state", "still");
+        }
+    });
+
     renderButtons();
 
 });

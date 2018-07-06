@@ -2507,8 +2507,10 @@ h1 {
   font-size: 40px; }
 
 body.active {
-  background-image: url(images/bubbles.gif);
+  background-image: url(images/bubbles-slow.gif);
   background-size: 100%; }
+  body.active h1 {
+    color: white; }
 
 .split-word-wrapper-h1 {
   height: 40px;

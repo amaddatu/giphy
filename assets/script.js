@@ -111,12 +111,17 @@ $(document).ready(function() {
             //change attributes to the gif or animated image
             image.attr("src", image.attr("data-gif-image"));
             image.attr("data-image-state", "gif");
+
+            $(this).addClass("soda-gif");
+
         }
         //if we don't have still state
         else{
             //change attributes to the still image
             image.attr("src", image.attr("data-still-image"));
             image.attr("data-image-state", "still");
+            
+            $(this).removeClass("soda-gif");
         }
     });
 

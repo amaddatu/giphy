@@ -2544,14 +2544,22 @@ h1 {
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 20px; }
-    .gif-section .soda img {
-      border-radius: 20px; }
   .gif-section .soda.soda-gif {
     background: lightpink; }
   .gif-section .soda:hover {
     background: blue; }
   .gif-section .soda.soda-gif:hover {
     background: red; }
+  .gif-section .image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden; }
+  .gif-section .rating {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: black;
+    color: white; }
 
 #soda-display {
   text-align: center; }

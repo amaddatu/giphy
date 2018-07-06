@@ -30,6 +30,8 @@ $(document).ready(function() {
                 //since still image is defined... we can now use the still image url
                 image.attr("src", stillImage);
                 var rating = currentData.rating;
+                
+                var p = $("<div>").text("Rating: " + rating).addClass("rating");
                 //console.log(rating);
 
                 //check if we have an animation available
@@ -44,12 +46,11 @@ $(document).ready(function() {
                     //console.log(gifImage);
                 }
                 
-                
-                var p = $("<div>").text("Rating: " + rating);
+                var imageWrapper = $("<div>").addClass("image-wrapper");
+                imageWrapper.append(image).append(p);
 
                 //Now append image to div
-                $(sodaDiv).append(p);
-                $(sodaDiv).append(image);
+                $(sodaDiv).append(imageWrapper);
                 $('.gif-section').append(sodaDiv);
              
             }
@@ -120,7 +121,7 @@ $(document).ready(function() {
             //change attributes to the still image
             image.attr("src", image.attr("data-still-image"));
             image.attr("data-image-state", "still");
-            
+
             $(this).removeClass("soda-gif");
         }
     });

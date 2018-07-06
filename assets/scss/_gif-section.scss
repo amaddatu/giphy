@@ -10,9 +10,6 @@
         border-radius: 20px;
         margin-bottom: 20px;
 
-        img{
-            border-radius: 20px;
-        }
     }
     .soda.soda-gif{
         background: lightpink;
@@ -22,5 +19,19 @@
     }
     .soda.soda-gif:hover{
         background: red;
+    }
+    
+    
+    .image-wrapper{
+        position:relative;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .rating{
+        position:absolute;
+        bottom:0px;
+        width: 100%;
+        background:black;
+        color: white;
     }
 }

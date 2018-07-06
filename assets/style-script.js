@@ -46,7 +46,10 @@ $(document).ready(function() {
         var removeExtras = function(){
             //console.log(this);
             this.find(".bottom").hide();
+            
             this.find(".top").css("border-bottom", "none");
+            this.find(".top").removeClass("animated");
+            this.find(".top").removeClass("jello");
         }
         setTimeout(showTitle.bind(wrapper), 1000);
         setTimeout(removeExtras.bind(wrapper), 2000);

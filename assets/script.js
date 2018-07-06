@@ -28,12 +28,17 @@ $(document).ready(function() {
                 var rating = currentData.rating;
                 //console.log(rating);
 
-                //adding states and stateful images
-                //console.log(currentData.images);
-                //Note: remember to put "data-" in front of custom attribute names
-                image.attr("data-still-image", stillImage);
-                image.attr("data-gif-image", gifImage);
-                image.attr("data-image-state", "still");
+                //check if we have an animation available
+                //graceful failure state possible
+                if(gifImage.length > 0){
+                    //adding states and stateful images
+                    //console.log(currentData.images);
+                    //Note: remember to put "data-" in front of custom attribute names
+                    image.attr("data-still-image", stillImage);
+                    image.attr("data-gif-image", gifImage);
+                    image.attr("data-image-state", "still");
+                    //console.log(gifImage);
+                }
                 
                 
                 var p = $("<div>").text("Rating: " + rating);
@@ -93,9 +98,10 @@ $(document).ready(function() {
     //Adding stateful gif click event
     $(".gif-section").on("click", ".soda", function(event){
         //making sure I get the div I want...
-        console.log(this);
+        //console.log(this);
         var image = $(this).find("img");
         var imageState = image.attr("data-image-state");
+        console.log(imageState);
         //if we have a still state
         if(imageState === "still"){
             //change attributes to the gif or animated image

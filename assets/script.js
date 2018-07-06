@@ -17,10 +17,11 @@ $(document).ready(function() {
           for(var i=0; i < 10; i++){
     
             // Creating an element to hold the image
-              var image = $("<img>").attr("src", stillImage);
+              var image = $("<img>");
               var sodaDiv = $("<div class='soda'>");
               var stillImage = response.data[i].images.fixed_height_still.url;
               console.log(stillImage);
+              image.attr("src", stillImage);
               var rating = response.data[i].rating;
               console.log(rating);
               var p = $("<div>").text("Rating: " + rating);

@@ -2523,7 +2523,9 @@ h1 {
   display: inline-block; }
 
 .split-word-wrapper-h1 {
-  height: 40px; }
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 7px; }
   .split-word-wrapper-h1 .top,
   .split-word-wrapper-h1 .bottom {
     height: 18px;

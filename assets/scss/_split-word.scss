@@ -2,6 +2,8 @@ $h1FontSize: 40px;
 $h1SpaceBetween: 4px;
 .split-word-wrapper-h1{
     height: $h1FontSize;
+    margin-top: 10px;
+    margin-bottom: 7px;
     .top,
     .bottom{
         height: $h1FontSize / 2 - 2px - ($h1SpaceBetween / 2) + 2px;

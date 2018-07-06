@@ -11,7 +11,7 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
+            //console.log(response);
     
             // Creating a div to hold the soda
             for(var i=0; i < 10; i++){
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 //console.log(rating);
 
                 //adding states and stateful images
-                console.log(currentData.images);
+                //console.log(currentData.images);
                 //Note: remember to put "data-" in front of custom attribute names
                 image.attr("data-still-image", stillImage);
                 image.attr("data-gif-image", gifImage);
@@ -52,7 +52,7 @@ $(document).ready(function() {
     }
     function renderButtons(){
 
-        $('.gif-section').empty();
+        $('#soda-display').empty();
         for(i = 0; i < sodas.length; i++){
 
             var b = $("<button>");
@@ -63,7 +63,7 @@ $(document).ready(function() {
 
             b.text(sodas[i]);
 
-            $('.gif-section').append(b);
+            $('#soda-display').append(b);
 
         }
     }
@@ -88,13 +88,7 @@ $(document).ready(function() {
        
     });
     //PLEASE REMEMBER THIS DAN!!!! Adding a child to your .on(click)
-    $("#soda-display").on("click", ".soda-btn", function(){
-        console.log(this);
-        
-    });
-
-
-    $(document).on("click", ".soda-btn", displaySodaGifs);
+    $("#soda-display").on("click", ".soda-btn", displaySodaGifs);
     renderButtons();
 
 });

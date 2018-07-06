@@ -1,6 +1,23 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+function getClassNameFromData(data){
+    var re = /^[a-z|A-Z|0-9| ]+$/;
+    var filtered = "";
+    var data = data.toLowerCase();
+    for(var i = 0; i < data.length; i++){
+        var ch = data.charAt(i);
+        if(re.test(ch)){
+            if(ch === ' '){
+                filtered += '-';
+            }
+            else{
+                filtered += ch;
+            }
+        }
+    }
+    return filtered;
+}
 var buttonRenderFirstRun = true;
 var animationSelections = [
     'animated bounceInDown',
@@ -107,6 +124,8 @@ $(document).ready(function() {
             var b = $("<button>");
 
             b.attr("class", "soda-btn");
+
+            b.addClass("soda-" + getClassNameFromData(sodas[i]));
 
             b.attr("data-name", sodas[i]);
 

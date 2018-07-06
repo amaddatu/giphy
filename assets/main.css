@@ -2568,6 +2568,20 @@ h1 {
     color: white;
     margin: 5px;
     padding: 10px; }
+  #soda-display .soda-coke {
+    background: red;
+    font-weight: bold; }
+  #soda-display .soda-sprite {
+    background: green;
+    font-weight: bold; }
+  #soda-display .soda-mountain-dew {
+    color: red;
+    font-weight: bold; }
+  #soda-display .soda-dr-pepper {
+    background: darkred;
+    border-color: black;
+    color: white;
+    font-weight: bold; }
 
 #add-soda {
   background: blue;

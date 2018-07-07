@@ -2,10 +2,14 @@ $(document).ready(function() {
     var sodas = ['Coke', 'Sprite', 'Mountain Dew', 'Dr. Pepper'];
     
     function displaySodaGifs() {
+        //clear all sodas from display
+        $('.gif-section').find(".soda").remove();
 
         var soda = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO";
     
+
+
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
             url: queryURL,

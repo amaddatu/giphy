@@ -86,7 +86,7 @@ $(document).ready(function() {
                 image.attr("src", stillImage);
                 var rating = currentData.rating;
                 
-                var p = $("<div>").text("Rating: " + rating).addClass("rating");
+                var p = $("<div>").html('<span class="label">Rating: </span><span class="value">' + rating + '</span>').addClass("rating");
                 //console.log(rating);
 
                 //check if we have an animation available

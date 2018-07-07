@@ -2561,11 +2561,62 @@ body.active {
     border-radius: 20px;
     overflow: hidden; }
   .gif-section .rating {
-    position: absolute;
-    bottom: 0px;
+    position: relative;
     width: 100%;
-    background: black;
-    color: white; }
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #fff;
+    text-transform: uppercase; }
+    .gif-section .rating .label {
+      display: none; }
+    .gif-section .rating .value {
+      border-radius: 10px;
+      display: inline-block;
+      padding: 2px; }
+    @media screen and (min-width: 800px) {
+      .gif-section .rating {
+        position: absolute;
+        bottom: 0px;
+        text-transform: none;
+        background: black;
+        font-weight: normal;
+        color: white; }
+        .gif-section .rating .label {
+          display: inline; }
+        .gif-section .rating .value {
+          background: transparent;
+          display: inline; } }
+  .gif-section .image-wrapper img {
+    max-height: 50px; }
+    @media screen and (min-width: 390px) {
+      .gif-section .image-wrapper img {
+        max-height: 65px; } }
+    @media screen and (min-width: 480px) {
+      .gif-section .image-wrapper img {
+        max-height: 80px; } }
+    @media screen and (min-width: 570px) {
+      .gif-section .image-wrapper img {
+        max-height: 95px; } }
+    @media screen and (min-width: 660px) {
+      .gif-section .image-wrapper img {
+        max-height: 110px; } }
+    @media screen and (min-width: 750px) {
+      .gif-section .image-wrapper img {
+        max-height: 125px; } }
+    @media screen and (min-width: 840px) {
+      .gif-section .image-wrapper img {
+        max-height: 140px; } }
+    @media screen and (min-width: 930px) {
+      .gif-section .image-wrapper img {
+        max-height: 155px; } }
+    @media screen and (min-width: 1020px) {
+      .gif-section .image-wrapper img {
+        max-height: 170px; } }
+    @media screen and (min-width: 1110px) {
+      .gif-section .image-wrapper img {
+        max-height: 185px; } }
+    @media screen and (min-width: 1200px) {
+      .gif-section .image-wrapper img {
+        max-height: 200px; } }
 
 #soda-display {
   text-align: center; }

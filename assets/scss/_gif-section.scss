@@ -26,10 +26,45 @@
         overflow: hidden;
     }
     .rating{
-        position:absolute;
-        bottom:0px;
+        position: relative;
         width: 100%;
-        background:black;
-        color: white;
+        font-weight: bold;
+        
+        text-shadow:1px 1px 10px #fff;
+        text-transform: uppercase;
+        .label{
+            display:none;
+        }
+        .value{
+            //background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            display: inline-block;
+            padding: 2px;
+        }
+        @media screen and (min-width:800px){
+            position:absolute;
+            bottom:0px;
+            text-transform: none;
+            background:black;
+            font-weight: normal;
+            color: white;
+            .label{
+                display: inline;
+            }
+            .value{
+                background: transparent;
+                display: inline;
+            }
+        }
+        
+    }
+    .image-wrapper img{
+        max-height: 50px;
+        @for $i from 1 through 10 {
+            @media screen and (min-width: 300px + ($i * 90)){
+                max-height: 50px + ($i * 15);
+            }
+        }
+        
     }
 }

@@ -2577,7 +2577,7 @@ body.active {
         position: absolute;
         bottom: 0px;
         text-transform: none;
-        background: black;
+        background: rgba(0, 0, 0, 0.3);
         font-weight: normal;
         color: white; }
         .gif-section .rating .label {

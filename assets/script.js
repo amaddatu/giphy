@@ -1,6 +1,23 @@
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+function getClassNameFromData(data){
+    var re = /^[a-z|A-Z|0-9| ]+$/;
+    var filtered = "";
+    var data = data.toLowerCase();
+    for(var i = 0; i < data.length; i++){
+        var ch = data.charAt(i);
+        if(re.test(ch)){
+            if(ch === ' '){
+                filtered += '-';
+            }
+            else{
+                filtered += ch;
+            }
+        }
+    }
+    return filtered;
+}
 var buttonRenderFirstRun = true;
 var animationSelections = [
     'animated bounceInDown',
@@ -33,10 +50,14 @@ var attentionSelections = [
 
 $(document).ready(function() {
     var sodas = ['Coke', 'Sprite', 'Mountain Dew', 'Dr. Pepper'];
-    
     function displaySodaGifs() {
         //clear all sodas from display
         $('.gif-section').find(".soda").remove();
+
+        
+        if(!$('body').hasClass('active')){
+            $('body').addClass('active');
+        }
 
         var soda = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + soda + "&api_key=AfBXBVWRioadKrXZOqJFse9JxinigJyO";
@@ -65,7 +86,7 @@ $(document).ready(function() {
                 image.attr("src", stillImage);
                 var rating = currentData.rating;
                 
-                var p = $("<div>").text("Rating: " + rating).addClass("rating");
+                var p = $("<div>").html('<span class="label">Rating: </span><span class="value">' + rating + '</span>').addClass("rating");
                 //console.log(rating);
 
                 //check if we have an animation available
@@ -107,6 +128,8 @@ $(document).ready(function() {
             var b = $("<button>");
 
             b.attr("class", "soda-btn");
+
+            b.addClass("soda-" + getClassNameFromData(sodas[i]));
 
             b.attr("data-name", sodas[i]);
 

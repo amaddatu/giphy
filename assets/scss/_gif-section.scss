@@ -1,0 +1,37 @@
+.gif-section{
+    text-align:center;
+    .soda{
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;    
+        border: 1px solid grey;
+        background: lightblue;
+        padding: 10px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+
+    }
+    .soda.soda-gif{
+        background: lightpink;
+    }
+    .soda:hover{
+        background: blue;
+    }
+    .soda.soda-gif:hover{
+        background: red;
+    }
+    
+    
+    .image-wrapper{
+        position:relative;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .rating{
+        position:absolute;
+        bottom:0px;
+        width: 100%;
+        background:black;
+        color: white;
+    }
+}

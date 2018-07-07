@@ -1,3 +1,36 @@
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+var buttonRenderFirstRun = true;
+var animationSelections = [
+    'animated bounceInDown',
+    'animated bounceInLeft',
+    'animated bounceInRight',
+    'animated bounceInUp',
+    'animated rotateInDownLeft',
+    'animated rotateInDownRight',
+    'animated rotateInUpLeft',
+    'animated rotateInUpRight'
+];
+
+var buttonNewSelections = [
+    'animated zoomIn',
+    'animated zoomInDown',
+    'animated zoomInLeft',
+    'animated zoomInRight'
+];
+
+var attentionSelections = [
+    'animated bounce',
+    'animated flash',
+    'animated pulse',
+    'animated jello',
+    'animated wobble',
+    'animated tada',
+    'animated swing',
+    'animated shake'
+];
+
 $(document).ready(function() {
     var sodas = ['Coke', 'Sprite', 'Mountain Dew', 'Dr. Pepper'];
     
@@ -15,6 +48,7 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         }).then(function(response) {
+            
             //console.log(response);
     
             // Creating a div to hold the soda
@@ -30,6 +64,8 @@ $(document).ready(function() {
                 //since still image is defined... we can now use the still image url
                 image.attr("src", stillImage);
                 var rating = currentData.rating;
+                
+                var p = $("<div>").text("Rating: " + rating).addClass("rating");
                 //console.log(rating);
 
                 //check if we have an animation available
@@ -44,14 +80,18 @@ $(document).ready(function() {
                     //console.log(gifImage);
                 }
                 
-                
-                var p = $("<div>").text("Rating: " + rating);
+                var imageWrapper = $("<div>").addClass("image-wrapper");
+                imageWrapper.append(image).append(p);
 
                 //Now append image to div
-                $(sodaDiv).append(p);
-                $(sodaDiv).append(image);
+                $(sodaDiv).append(imageWrapper);
+
+                var randomAnimationNumber = getRandomInt(animationSelections.length);
+                $(sodaDiv).addClass(animationSelections[randomAnimationNumber]);
                 $('.gif-section').append(sodaDiv);
-             
+                setTimeout(function(element, animationClass){
+                    $(element).removeClass(animationClass);
+                }, 1000, sodaDiv, animationSelections[randomAnimationNumber]);
             }
           
         
@@ -71,10 +111,20 @@ $(document).ready(function() {
             b.attr("data-name", sodas[i]);
 
             b.text(sodas[i]);
-
+            
+            if(!buttonRenderFirstRun && i === sodas.length - 1){
+                var randomAnimationNumber = getRandomInt(buttonNewSelections.length);
+                b.addClass(buttonNewSelections[randomAnimationNumber]);
+                setTimeout(function(element, animationClass){
+                    $(element).removeClass(animationClass);
+                }, 1000, b, buttonNewSelections[randomAnimationNumber]);
+            }
+            
             $('#soda-display').append(b);
 
+
         }
+        buttonRenderFirstRun = false;
     }
 
     $('#add-soda').on('click', function(event){
@@ -105,18 +155,28 @@ $(document).ready(function() {
         //console.log(this);
         var image = $(this).find("img");
         var imageState = image.attr("data-image-state");
-        console.log(imageState);
+        //console.log(imageState);
         //if we have a still state
         if(imageState === "still"){
             //change attributes to the gif or animated image
             image.attr("src", image.attr("data-gif-image"));
             image.attr("data-image-state", "gif");
+
+            $(this).addClass("soda-gif");
+            var randomAnimationNumber = getRandomInt(attentionSelections.length);
+            $(this).addClass(attentionSelections[randomAnimationNumber]);
+
+            setTimeout(function(element, animationClass){
+                $(element).removeClass(animationClass);
+            }, 1000, this, attentionSelections[randomAnimationNumber]);
         }
         //if we don't have still state
         else{
             //change attributes to the still image
             image.attr("src", image.attr("data-still-image"));
             image.attr("data-image-state", "still");
+
+            $(this).removeClass("soda-gif");
         }
     });
 
